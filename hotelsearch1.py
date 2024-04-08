@@ -22,7 +22,7 @@ def SearchHotelList1(city, rooms, nights,startDate, endDate, adults, children, a
                 "room_no": 1,
                 "adult": {adults},
                 "child": {children},
-                "child_age": [{ages}]
+                "child_age": {ages}
             }}
         ]
     }}"""

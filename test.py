@@ -1,10 +1,25 @@
 from hotelsearch1 import SearchHotelList1
 from pprint import pprint
 from hotelcity import GetHotelCity
+from datetime import datetime
 
 #city=GetHotelCity("delhi")[0]
+
 #print(city)
-searchId,result = SearchHotelList1("Bur Dubai, United Arab Emirates","1","1","2024/04/07", "2024/04/08",1,1,9)
+# Convert the strings to datetime objects 
+start_date = datetime.strptime("2024-04-09", '%Y-%m-%d') 
+end_date = datetime.strptime("2024-04-11", '%Y-%m-%d') 
+ 
+# Use strftime to format the dates 
+start = start_date.strftime('%Y/%m/%d') 
+end = end_date.strftime('%Y/%m/%d') 
+ 
+# Print the formatted dates 
+print(start) 
+print(end)
+
+
+searchId,result = SearchHotelList1("Bur Dubai, United Arab Emirates","1","1",start,end,1,1,[9])
 pprint(result)
 print("this is the search id for hotel search",searchId)
 #def SearchHotelList1(city, startDate, endDate, adults, children, ages, rooms, nights,room_No):

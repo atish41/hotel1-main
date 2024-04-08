@@ -2,6 +2,8 @@ from flask import Flask,request
 from pprint import pprint
 from hotelsearch1 import SearchHotelList1
 from ages import ageconverter
+from datetime import datetime
+#from timeconverter import convert_date_fromat
 app=Flask(__name__)
 
 @app.route('/')
@@ -18,7 +20,13 @@ def hotelhook():
     rooms=parameters['rooms']
     nights=parameters['nights']
     startDate=parameters['start-date']
+    #startDate=startDate.replace("-","/")
     endDate=parameters['end-date']
+    #endDate=endDate.replace("-","/")
+    startDate = datetime.strptime(startDate, '%Y-%m-%d')
+    endDate = datetime.strptime(endDate, '%Y-%m-%d')
+    start = startDate.strftime('%Y/%m/%d')
+    end = endDate.strftime('%Y/%m/%d')
     adults=parameters['adults']
     children=parameters['children']
     child_age=parameters['ages']
@@ -30,7 +38,7 @@ def hotelhook():
 
 #def SearchHotelList1(city, rooms, nights,startDate, endDate, adults, children, ages):
 
-    searchId,hotel_list=SearchHotelList1(destination,rooms,nights,startDate,endDate,adults,children,child_age)
+    searchId,hotel_list=SearchHotelList1(destination,rooms,nights,start,end,adults,children,child_age)
     hotel_list=hotel_list[:7]
     response={
         "fulfillmentResponse":{
