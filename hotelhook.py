@@ -66,26 +66,18 @@ def hotelhook():
                                             "message":{
                                                 "type":"training",
                                                 "command":"book now",
-                                                "parameters":{
-                                                    "searchId":f"\"{searchId}\"",
-                                                    "hotelId":i["hotelId"],
-                                                    "hotelName":i['hotelName'],
-                                                    "hotelRating":i['hotelRating'],
-                                                    "locality":i['locality'],
-                                                    "nights":i['nights'],
-                                                    "rooms":i['rooms'],
-                                                    "totalPrice":i['totalPrice']
-                                                }
-                                            }
+                                                
+                                            },
                                         },
-                                        "body":f"{i['description'][:150]}....",
+                                        
+                                        "body":f'this will return body',
                                         "image":{
-                                            "alt":"Image of Activity",
-                                            "url":i['featureImage']
+                                            "alt":"Image of activity",
+                                            "url":f'static image'
                                         },
-                                        "subtitle":f"NGN {i['adultPrice']}",
-                                        "title":i['hotelName']
-                                    } for i in hotel_list
+                                        "subtitle": f"NGN price for the hotel",
+                                        "title":f'new star'
+                                    } #for i in hotel_list
                                 ]
                             }
                         ]
